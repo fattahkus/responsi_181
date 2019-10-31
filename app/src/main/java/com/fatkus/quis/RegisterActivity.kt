@@ -29,17 +29,20 @@ class RegisterActivity : AppCompatActivity() {
 
         reg_button.setOnClickListener{
             if(reg_edt_inpt_name.text.toString().isEmpty()){
-                toast("Your name can't be empty", Toast.LENGTH_LONG)
-                //Toast.makeText(this@RegisterActivity,"Your name can't be empty", Toast.LENGTH_SHORT).show()
+                //toast("Your name can't be empty", Toast.LENGTH_LONG)
+                Toast.makeText(this@RegisterActivity,"Your name can't be empty", Toast.LENGTH_SHORT).show()
             }else if(reg_edt_inpt_u_name.text.toString().isEmpty()){
-                toast("Your username can't be empty", Toast.LENGTH_LONG)
-
+                //toast("Your username can't be empty", Toast.LENGTH_LONG)
+                Toast.makeText(this@RegisterActivity,"Your username can't be empty", Toast.LENGTH_SHORT).show()
             }else if(reg_edt_inpt_email.text.toString().isEmpty()){
-                toast("Your email can't be empty", Toast.LENGTH_LONG)
+                //toast("Your email can't be empty", Toast.LENGTH_LONG)
+                Toast.makeText(this@RegisterActivity,"Your email can't be empty", Toast.LENGTH_SHORT).show()
             }else if(reg_edt_inpt_password.text.toString().isEmpty()){
-                toast("Your password can't be empty", Toast.LENGTH_LONG)
-            }else if(reg_edt_inpt_name.text.toString().isNotEmpty()||reg_edt_inpt_u_name.text.toString().isNotEmpty()||reg_edt_inpt_email.text.toString().isNotEmpty()||reg_edt_inpt_password.text.toString().isNotEmpty()) {
-                toast("Your Signup was successful", Toast.LENGTH_LONG)
+                //toast("Your password can't be empty", Toast.LENGTH_LONG)
+                Toast.makeText(this@RegisterActivity,"Your password can't be empty", Toast.LENGTH_SHORT).show()
+            }else if(reg_edt_inpt_name.text.toString().isNotEmpty()&&reg_edt_inpt_u_name.text.toString().isNotEmpty()&&reg_edt_inpt_email.text.toString().isNotEmpty()&&reg_edt_inpt_password.text.toString().isNotEmpty()) {
+                //toast("Your Signup was successful", Toast.LENGTH_LONG)
+                Toast.makeText(this@RegisterActivity,"Your Signup was successful", Toast.LENGTH_SHORT).show()
 
                 // Program Intent
                 val intent = Intent(this, LoginActivity::class.java)
@@ -49,8 +52,13 @@ class RegisterActivity : AppCompatActivity() {
                 intent.putExtra("data_password", dt_password.text.toString())
                 startActivity(intent)
             }
+            back_login.setOnClickListener {
+                val back = Intent(this, LoginActivity::class.java)
+                startActivity(back)
+            }
         }
-    }private fun toast(message: String, length: Int = Toast.LENGTH_LONG){
-        Toast.makeText(this,message,length).show()
     }
+//    private fun toast(message: String, length: Int = Toast.LENGTH_LONG){
+//        Toast.makeText(this,message,length).show()
+//    }
 }
