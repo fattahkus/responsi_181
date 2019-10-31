@@ -25,14 +25,6 @@
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/loginViewsMargin"
         style="@style/parent">
-<!--        <EditText-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:id="@+id/reg_edt_inpt_name"-->
-<!--            style="@style/modifiedEditText"-->
-<!--            android:hint="@string/login_name_hint"-->
-<!--            android:inputType="textPersonName"-->
-<!--            android:maxLines="1"/>-->
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/reg_edt_inpt_name"
             style="@style/modifiedEditText"
