@@ -3,7 +3,17 @@ package com.fatkus.quis.model
 import com.fatkus.quis.R
 
 object ProductData {
-    private val productName = arrayOf("C","C++","C#","Java","JavaScript","Nodejs","Kotlin","PHP","Python","GoLang")
+    private val productName = arrayOf(
+        "C",
+        "C++",
+        "C#",
+        "Java",
+        "JavaScript",
+        "Nodejs",
+        "Kotlin",
+        "PHP",
+        "Python",
+        "GoLang")
     private val detail = arrayOf(
         "C ini termasuk bahasa pemrograman tertua yang pernah ada",
         "C++ merupakan bahasa pemrograman pengembangan dari bahasa C++",

@@ -1,15 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".LoginActivity"
+    android:layout_height="wrap_content"
     android:background="@drawable/login_bk"
-    android:focusableInTouchMode="true">
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="32dp">
 
-    <include layout="@layout/layout_login"/>
+    <View
+        android:layout_width="0dp"
+        android:layout_height="32dp" />
 
+    <TextView
+        style="@style/loginHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_username"
+        style="@style/parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/loginViewsMargin">
+
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/modifiedEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/login_email_hint"
+            android:inputType="textEmailAddress"
+            android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_password"
+        style="@style/parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/loginViewsMargin">
+
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/modifiedEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/login_password_hint"
+            android:inputType="textPassword"
+            android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/submit"
+        style="@style/loginButton"
+        android:layout_gravity="end"
+        android:layout_marginTop="@dimen/loginViewsMargin"
+        android:text="Login" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/registration"
+        style="@style/parent"
+        android:layout_marginTop="@dimen/loginViewsMargin"
+        android:text="@string/login_signup_hint"
+        android:textAlignment="textEnd"
+        android:textColor="@color/primaryTextColor"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="46dp" />
+    <TextView
+        android:id="@+id/hsl_username"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="105dp"
+        android:layout_marginLeft="135dp"
+        android:textAlignment="center"
+        android:text="NIM"
+        android:textColor="#000000"
+        android:textSize="25sp" />
+
+</LinearLayout>

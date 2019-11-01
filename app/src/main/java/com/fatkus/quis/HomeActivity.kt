@@ -1,7 +1,10 @@
 package com.fatkus.quis
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.fatkus.quis.adapter.ListProductAdapter
@@ -27,5 +30,23 @@ class HomeActivity : AppCompatActivity() {
         rvProduct.layoutManager = LinearLayoutManager(this)
         val listProductAdapter = ListProductAdapter(list)
         rvProduct.adapter = listProductAdapter
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.user_profil, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        setMode(item.itemId)
+        return super.onOptionsItemSelected(item)
+    }
+    private fun setMode(selectedMode: Int){
+        when(selectedMode){
+            R.id.user_profil -> {
+                intent= Intent(this, AccountActivity::class.java)
+                startActivity(intent)
+            }
+        }
     }
 }
