@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.fatkus.quis.adapter.ListProductAdapter
@@ -30,7 +31,16 @@ class HomeActivity : AppCompatActivity() {
         list.addAll(ProductData.listProduct)
         showProductList()
 
-
+        val actionbar = supportActionBar
+        if (actionbar != null) {
+            (actionbar as ActionBar).title = "Product List"
+            actionbar.setDisplayHomeAsUpEnabled(true)
+            actionbar.setDisplayHomeAsUpEnabled(true)
+        }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
     private fun showProductList(){
         rvProduct.layoutManager = LinearLayoutManager(this)
@@ -48,42 +58,23 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.user_profil, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        //setMode(item.itemId)
-//                val bundle = intent.extras
-//                val user_Name = bundle?.get("data_name1").toString()
-//                val user_uNme = bundle?.get("data_u_name1").toString()
-//                val user_Email = bundle?.get("data_email1").toString()
-
-        val id = item.getItemId()
-
-        if(id == R.id.user_profil){
-                user_profil.setOnClickListener {
-                intent = Intent(this, AccountActivity::class.java)
-                startActivity(intent)
-           }
-            return true
-        }
-
+        setMode(item.itemId)
         return super.onOptionsItemSelected(item)
     }
-//    private fun setMode(selectedMode: Int){
-//        when(selectedMode){
-//            R.id.user_profil -> {
-//                val bundle = intent.extras
-//                val user_Name = bundle?.get("data_name1").toString()
-//                val user_uNme = bundle?.get("data_u_name1").toString()
-//                val user_Email = bundle?.get("data_email1").toString()
-//
-//                intent= Intent(this, AccountActivity::class.java)
-//                intent.putExtra("data_name1", user_Name)
-//                startActivity(intent)
-//            }
-//        }
-//    }
+
+    private fun setMode(selectedMode: Int) {
+        when (selectedMode) {
+            R.id.user_profil -> {
+                showProductList()
+                intent = Intent(this,AccountActivity::class.java)
+                 startActivity(intent)
+            }
+        }
+    }
 }

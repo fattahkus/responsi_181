@@ -15,8 +15,11 @@ class AccountActivity : AppCompatActivity() {
 
         name = findViewById(R.id.usr_name)
 
-        if(supportActionBar != null){
-            (supportActionBar as ActionBar).title = "Account"
+        val actionbar = supportActionBar
+        if (actionbar != null) {
+            (actionbar as ActionBar).title = "My Profil"
+            actionbar.setDisplayHomeAsUpEnabled(true)
+            actionbar.setDisplayHomeAsUpEnabled(true)
         }
 
         val bundle = intent.extras
@@ -27,5 +30,9 @@ class AccountActivity : AppCompatActivity() {
         name.text = user_Name
 //        name.setText(intent.getStringExtra("data_u_name1"))
 
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

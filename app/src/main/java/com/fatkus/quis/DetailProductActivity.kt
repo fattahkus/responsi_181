@@ -28,10 +28,17 @@ class DetailProductActivity : AppCompatActivity() {
         Name.text = name
         Detail.text = detail
 
-        if (supportActionBar != null) {
-            (supportActionBar as ActionBar).title = name
+        val actionbar = supportActionBar
+        if (actionbar != null) {
+            (actionbar as ActionBar).title = name
+            actionbar.setDisplayHomeAsUpEnabled(true)
+            actionbar.setDisplayHomeAsUpEnabled(true)
         }
 
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
     companion object{
         const val SHOW_NAME = "show_name"
