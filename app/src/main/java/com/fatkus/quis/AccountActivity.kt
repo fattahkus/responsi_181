@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
+import kotlinx.android.synthetic.main.activity_account.*
 
 class AccountActivity : AppCompatActivity() {
     private lateinit var name: TextView
@@ -13,7 +14,6 @@ class AccountActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account)
 
-        name = findViewById(R.id.usr_name)
 
         val actionbar = supportActionBar
         if (actionbar != null) {
@@ -23,11 +23,14 @@ class AccountActivity : AppCompatActivity() {
         }
 
         val bundle = intent.extras
-        val user_Name = bundle?.get("data_name1").toString()
-        val user_uNme = bundle?.get("data_u_name1").toString()
-        val user_Email = bundle?.get("data_email1").toString()
+        val userName = bundle?.get("data_name1").toString()
+        val userUName = bundle?.get("data_u_name1").toString()
+        val userEmail = bundle?.get("data_email1").toString()
 
-        name.text = user_Name
+        usr_Name.text = userName
+        usr_Username.text = userUName
+        usr_email.text = userEmail
+
 //        name.setText(intent.getStringExtra("data_u_name1"))
 
     }

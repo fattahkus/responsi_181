@@ -19,11 +19,10 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var rvProduct: RecyclerView
     private var list: ArrayList<Product> = arrayListOf()
 
-    private lateinit var user_profil: TextView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
 
 
         rvProduct = findViewById(R.id.rv_product)
@@ -72,8 +71,18 @@ class HomeActivity : AppCompatActivity() {
         when (selectedMode) {
             R.id.user_profil -> {
                 showProductList()
+
+                val bundle = intent.extras
+                val userName = bundle?.get("data_name1").toString()
+                val userUName = bundle?.get("data_u_name1").toString()
+                val userEmail = bundle?.get("data_email1").toString()
+
                 intent = Intent(this,AccountActivity::class.java)
-                 startActivity(intent)
+                Toast.makeText(applicationContext, "Your Name"+ userName, Toast.LENGTH_SHORT).show()
+                intent.putExtra("data_name1",userName)
+                intent.putExtra("data_u_name1",userUName)
+                intent.putExtra("data_email1",userEmail)
+                startActivity(intent)
             }
         }
     }

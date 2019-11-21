@@ -56,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun validateForm() {
         val bundle = intent.extras
-        val user_regName = bundle?.get("data_neme").toString()
+        val user_regName = bundle?.get("data_name").toString()
         val user_regUsername = bundle?.get("data_u_name").toString()
         val user_regEmail = bundle?.get("data_email").toString()
         val user_regPassword = bundle?.get("data_password").toString()
